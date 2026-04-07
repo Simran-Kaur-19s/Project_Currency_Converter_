@@ -1,0 +1,316 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+/* ================= BACKGROUND ================= */
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    display:flex;
+    flex-direction:column;
+    transition:.5s ease;
+}
+
+body.dark{
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+}
+
+/* ================= NAV ================= */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    color:white;
+    font-size:22px;
+    animation:slideDown .8s ease;
+}
+
+@keyframes slideDown{
+    from{transform:translateY(-30px); opacity:0;}
+    to{transform:translateY(0); opacity:1;}
+}
+
+/* ================= CENTER ================= */
+
+.container{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+/* ================= CARD ================= */
+
+.card{
+    width:100%;
+    max-width:420px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(16px);
+    padding:35px;
+    border-radius:22px;
+    color:white;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+    text-align:center;
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1;}
+}
+
+.card h2{
+    margin-bottom:20px;
+}
+
+/* ================= INPUTS ================= */
+
+input,select{
+    width:100%;
+    padding:12px;
+    border-radius:12px;
+    border:none;
+    outline:none;
+    margin:10px 0;
+    font-size:16px;
+}
+
+/* ================= ROW ================= */
+
+.row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* ================= SWAP ================= */
+
+.swap-btn{
+    background:rgba(255,255,255,.25);
+    border:none;
+    padding:10px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+    transition:.4s ease;
+}
+
+.swap-btn:hover{
+    transform:rotate(180deg) scale(1.15);
+}
+
+/* ================= TEXT ================= */
+
+.live-rate{
+    margin:10px 0;
+    font-size:14px;
+    opacity:.85;
+}
+
+#result{
+    margin-top:20px;
+    font-size:22px;
+    font-weight:600;
+}
+
+/* ================= CONVERT ================= */
+
+#convert{
+    width:100%;
+    margin-top:15px;
+    padding:12px;
+    background:#00ffcc;
+    border:none;
+    border-radius:14px;
+    font-size:18px;
+    cursor:pointer;
+    transition:.4s ease;
+}
+
+#convert:hover{
+    background:#00c9a7;
+    transform:scale(1.07);
+}
+
+/* ================= HISTORY ================= */
+
+.history-link{
+    width:100%;
+    margin-top:18px;
+    padding:10px;
+    background:#ffd166;
+    border:none;
+    border-radius:14px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    transition:.4s ease;
+}
+
+.history-link:hover{
+    transform:scale(1.07);
+}
+
+/* ================= CHART ================= */
+
+.chart-section{
+    margin-top:25px;
+    padding:18px;
+    background:rgba(255,255,255,.12);
+    border-radius:18px;
+    backdrop-filter:blur(8px);
+    animation:fadeUp .8s ease;
+}
+
+.chart-section h3{
+    margin-bottom:12px;
+    font-size:18px;
+}
+
+.chart-buttons{
+    display:flex;
+    gap:8px;
+    margin-bottom:12px;
+}
+
+.chart-btn{
+    flex:1;
+    padding:8px;
+    border:none;
+    border-radius:12px;
+    background:#4dabf7;
+    color:white;
+    cursor:pointer;
+    font-size:14px;
+    transition:.4s ease;
+}
+
+.chart-btn:hover{
+    background:#339af0;
+    transform:scale(1.1);
+}
+
+.chart-btn.active{
+    background:#00ffcc;
+    color:#003;
+    font-weight:600;
+}
+
+/* Chart size fix */
+
+.chart-wrapper{
+    width:100%;
+    height:220px;
+    position:relative;
+}
+
+.chart-wrapper canvas{
+    width:100%!important;
+    height:100%!important;
+}
+
+/* ================= MODAL ================= */
+
+.history-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    pointer-events:none;
+    transition:.4s ease;
+}
+
+.history-modal.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.history-content{
+    background:#2f4858;
+    padding:25px;
+    border-radius:20px;
+    width:90%;
+    max-width:420px;
+    color:white;
+    text-align:center;
+    animation:pop .4s ease;
+}
+
+@keyframes pop{
+    from{transform:scale(.7); opacity:0;}
+    to{transform:scale(1); opacity:1;}
+}
+
+/* ================= BUTTONS ================= */
+
+.clear-btn{
+    margin:10px auto;
+    background:#ff6b6b;
+    border:none;
+    padding:8px 18px;
+    border-radius:12px;
+    color:white;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.clear-btn:hover{
+    background:#ff4b4b;
+}
+
+.close-btn{
+    margin-top:12px;
+    padding:8px 18px;
+    background:#ffd166;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+/* ================= TABLE ================= */
+
+#historyTable{
+    width:100%;
+    margin-top:12px;
+    border-collapse:collapse;
+}
+
+#historyTable th,
+#historyTable td{
+    border:1px solid rgba(255,255,255,.3);
+    padding:8px;
+    font-size:14px;
+}
+
+#historyTable th{
+    background:rgba(0,0,0,.35);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:480px){
+    .card{
+        padding:25px;
+    }
+
+    .chart-wrapper{
+        height:180px;
+    }
+
+    #historyTable{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+}

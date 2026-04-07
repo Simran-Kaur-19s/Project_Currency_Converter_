@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js (must load BEFORE script.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <h1>💱 CurrencyPro</h1>
+        <button id="themeToggle">🌙</button>
+    </nav>
+
+    <!-- MAIN CARD -->
+    <div class="container">
+        <div class="card">
+
+            <h2>Real-Time Currency Converter</h2>
+
+            <!-- Amount -->
+            <input type="number" id="amount" placeholder="Enter amount" min="1">
+
+            <!-- Currency Selection -->
+            <div class="row">
+
+                <select id="from"></select>
+
+                <button class="swap-btn" id="swapBtn">🔄</button>
+
+                <select id="to"></select>
+
+            </div>
+
+            <!-- Live Rate -->
+            <p class="live-rate" id="liveRate">
+                Live rate loading...
+            </p>
+
+            <!-- Convert Button -->
+            <button id="convert">Convert</button>
+
+            <!-- Result -->
+            <h3 id="result">Converted Amount</h3>
+
+            <!-- ================= CHART ================= -->
+
+            <div class="chart-section">
+
+                <h3>📈 Exchange Rate Trend</h3>
+
+                <div class="chart-buttons">
+                    <button class="chart-btn" data-range="1">Today</button>
+                    <button class="chart-btn" data-range="7">Last 7 Days</button>
+                    <button class="chart-btn" data-range="30">Last 30 Days</button>
+                </div>
+
+                <!-- Important wrapper (keeps chart visible) -->
+                <div style="height:220px;">
+                    <canvas id="rateChart"></canvas>
+                </div>
+
+            </div>
+
+            <!-- History Button -->
+            <button id="showHistory" class="history-link">
+                📜 View Conversion History
+            </button>
+
+        </div>
+    </div>
+
+    <!-- ================= HISTORY MODAL ================= -->
+
+    <div class="history-modal" id="historyModal">
+
+        <div class="history-content">
+
+            <h3>📜 Conversion History</h3>
+
+            <button id="clearHistory" class="clear-btn">
+                🗑 Clear History
+            </button>
+
+            <table id="historyTable">
+                <thead>
+                    <tr>
+                        <th>Amount</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <button class="close-btn" id="closeHistory">
+                Close
+            </button>
+
+        </div>
+    </div>
+
+    <!-- Main JS (ALWAYS LAST) -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
